@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductReadImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Product</a> &gt; <a href="index.source.html" class="el_package">com.ecommerce.Product.accesslayer.data.read.impl</a> &gt; <span class="el_source">ProductReadImpl.java</span></div><h1>ProductReadImpl.java</h1><pre class="source lang-java linenums">package com.ecommerce.Product.accesslayer.data.read.impl;
+
+import com.ecommerce.Product.accesslayer.data.read.ProductRead;
+import com.ecommerce.Product.model.Product;
+import com.ecommerce.Product.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.math.BigInteger;
+import java.util.List;
+import java.util.Optional;
+
+
+@Component
+<span class="nc" id="L15">@RequiredArgsConstructor</span>
+public class ProductReadImpl implements ProductRead {
+
+    private final ProductRepository productRepository;
+
+    @Override
+    public Optional&lt;Product&gt; getById(BigInteger id) {
+<span class="nc" id="L22">        Optional&lt;Product&gt; product = productRepository.findById(id);</span>
+<span class="nc" id="L23">        return product;</span>
+    }
+
+    @Override
+    public Optional&lt;List&lt;Product&gt;&gt; getAll() {
+<span class="nc" id="L28">        Optional&lt;List&lt;Product&gt;&gt; products = Optional.of(productRepository.findAll());</span>
+<span class="nc" id="L29">        return products;</span>
+    }
+
+    @Override
+    public void deleteById(BigInteger id) {
+<span class="nc" id="L34">        productRepository.deleteById(id);</span>
+<span class="nc" id="L35">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

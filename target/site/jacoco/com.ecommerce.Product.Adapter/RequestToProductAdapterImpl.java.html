@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RequestToProductAdapterImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Product</a> &gt; <a href="index.source.html" class="el_package">com.ecommerce.Product.Adapter</a> &gt; <span class="el_source">RequestToProductAdapterImpl.java</span></div><h1>RequestToProductAdapterImpl.java</h1><pre class="source lang-java linenums">package com.ecommerce.Product.Adapter;
+
+import com.ecommerce.Product.model.Product;
+import com.ecommerce.Product.model.request.CreateProductRequest;
+import com.ecommerce.Product.model.request.UpdateProductRequest;
+import org.springframework.stereotype.Component;
+
+import java.math.BigInteger;
+
+@Component
+<span class="fc" id="L11">public class RequestToProductAdapterImpl implements ObjectAdapter&lt;CreateProductRequest, Product&gt;{</span>
+    @Override
+    public Product convert(CreateProductRequest createProductRequest) {
+<span class="fc" id="L14">        return Product.builder()</span>
+<span class="fc" id="L15">                .price(createProductRequest.getPrice())</span>
+<span class="fc" id="L16">                .description(createProductRequest.getDescription())</span>
+<span class="fc" id="L17">                .name(createProductRequest.getName())</span>
+<span class="fc" id="L18">                .quantity(createProductRequest.getQuantity())</span>
+<span class="fc" id="L19">                .build();</span>
+    }
+
+    public Product convert(UpdateProductRequest updateProductRequest, BigInteger productId) {
+<span class="fc" id="L23">        return Product.builder()</span>
+<span class="fc" id="L24">                .productId(productId)</span>
+<span class="fc" id="L25">                .price(updateProductRequest.getPrice())</span>
+<span class="fc" id="L26">                .description(updateProductRequest.getDescription())</span>
+<span class="fc" id="L27">                .name(updateProductRequest.getName())</span>
+<span class="fc" id="L28">                .quantity(updateProductRequest.getQuantity())</span>
+<span class="fc" id="L29">                .build();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
